@@ -1,0 +1,281 @@
+:root {
+	/* Colors */
+	--clr-tomato: hsl(4, 100%, 67%);
+
+	--clr-darkSlateGrey: hsl(234, 29%, 20%);
+	--clr-charcoalGrey: hsl(235, 18%, 26%);
+	--clr-grey: hsl(231, 7%, 60%);
+	--clr-white: hsl(0, 0%, 100%);
+
+	/* Font */
+	--ff-Roboto: "Roboto", sans-serif;
+
+	--fw-normal: 400;
+	--fw-bold: 700;
+
+	--fs-paragraph: 16px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--ff-Roboto);
+	font-weight: var(--fw-normal);
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	background-color: var(--clr-charcoalGrey);
+}
+
+.card {
+	display: flex;
+	width: 750px;
+	height: 100%;
+	box-shadow: 0.2rem 0.4rem 1rem rgb(0 0 0 / 0.2);
+	background-color: var(--clr-white);
+	padding-inline: 1.5rem;
+	padding-block: 1.5rem;
+	border-radius: 1.5rem;
+	margin-inline: auto;
+	margin-block: 1rem;
+}
+
+@media screen and (max-width: 375px) {
+	.card {
+		flex-direction: column-reverse;
+		max-width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		border-radius: 0 0 1.5rem 1.5rem;
+	}
+}
+
+.card-body {
+	min-width: 50%;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-inline: 1.3rem;
+	color: var(--clr-darkSlateGrey);
+	margin-top: 4.5rem;
+}
+
+@media screen and (max-width: 375px) {
+	h1 {
+		font-size: 2.5rem;
+		margin-block: 1.5rem;
+	}
+}
+
+p {
+	font-size: 0.8rem;
+	margin-inline: 1.3rem;
+	margin-top: -0.5rem;
+	margin-bottom: 0;
+	color: var(--clr-charcoalGrey);
+	font-weight: 500;
+}
+
+@media screen and (max-width: 375px) {
+	p {
+		font-size: 1rem;
+	}
+}
+
+ul {
+	display: inline-block;
+	margin-inline: -1.3rem;
+}
+
+ul li {
+	display: flex;
+	list-style: none;
+	font-size: 0.8rem;
+	line-height: 2rem;
+	vertical-align: middle;
+	color: var(--clr-charcoalGrey);
+	font-weight: 500;
+}
+
+li > svg {
+	margin-block: 0.3rem;
+	margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 375px) {
+	ul {
+		margin-right: 1rem;
+	}
+
+	ul li {
+		padding-block: 0.5rem;
+		font-size: 1rem;
+		gap: 0.5rem;
+	}
+
+	li > svg {
+		width: 1.5rem;
+	}
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 85%;
+	margin-inline: 1.3rem;
+	margin-block: 1rem;
+}
+
+label {
+	font-size: 0.7rem;
+	color: var(--clr-darkSlateGrey);
+}
+
+.form-input {
+	border-radius: 0.5rem;
+	border: 1px solid var(--clr-grey);
+	height: 2.5rem;
+	font-size: 0.9rem;
+	color: var(--clr-darkSlateGrey);
+	padding-inline: 1rem;
+}
+
+.error-message {
+	color: red;
+	margin-bottom: -0.9rem;
+	font-size: 0.8rem;
+}
+
+.error {
+	border-color: red;
+}
+
+.success {
+	border-color: green;
+}
+
+.form-input::placeholder {
+	font-size: 0.8rem;
+}
+
+.form-input:focus {
+	outline: 1px solid var(--clr-darkSlateGrey);
+}
+
+.form-submit {
+	color: var(--clr-white);
+	background-color: var(--clr-darkSlateGrey);
+	border: 1px solid;
+	height: 2.5rem;
+	border-radius: 0.5rem;
+	margin-top: 0.8rem;
+	padding-top: 0;
+	transition: 0.3s;
+}
+
+.form-submit:hover {
+	background-color: var(--clr-tomato);
+	cursor: pointer;
+}
+
+.wrapper {
+	min-width: 50%;
+}
+
+.wrapper .desktop-view {
+	max-width: 100%;
+	min-height: 100%;
+}
+
+.wrapper .mobile-view {
+	display: none;
+}
+
+@media screen and (max-width: 375px) {
+	.wrapper .desktop-view {
+		display: none;
+	}
+
+	.wrapper .mobile-view {
+		display: flex;
+		max-width: 100%;
+	}
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	background-color: var(--clr-charcoalGrey);
+	min-width: 100%;
+	height: 100%;
+}
+
+@media screen and (max-width: 375px) {
+	.modal {
+		display: none;
+		top: 0;
+		bottom: 0;
+	}
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--clr-white);
+	margin: auto;
+	max-width: 350px;
+	max-height: 100vh;
+	border-radius: 2rem;
+	padding-block: 1rem;
+}
+
+.modal-content svg {
+	width: 2.7rem;
+	height: auto;
+	margin-inline: 3rem;
+	margin-top: 0.5rem;
+}
+
+.modal-content h1 {
+	margin-top: 1.3rem;
+	margin-bottom: 2rem;
+	margin-inline: 3rem;
+	line-height: 2.6rem;
+	font-size: 2.5rem;
+}
+
+.modal-content p {
+	margin-top: -1rem;
+	font-size: 16px;
+	margin-inline: 3rem;
+}
+
+.modal-content button {
+	margin: auto;
+	margin-top: 2.2rem;
+	margin-inline: 3rem;
+	height: 2.5rem;
+	background-color: var(--clr-darkSlateGrey);
+	color: var(--clr-white);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.modal-content button:hover {
+	background-color: var(--clr-tomato);
+}
